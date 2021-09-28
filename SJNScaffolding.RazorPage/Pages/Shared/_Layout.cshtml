@@ -11,11 +11,11 @@
     <environment exclude="Development">
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
-    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
-    <link href="~/lib/layui/css/layui.css" rel="stylesheet" />
-    <link href="~/lib/jqGrid/css/ui.jqgrid.css" rel="stylesheet" />
-    <link href="~/lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
-    @RenderSection("styles", required: false)
+    <link href="@Url.Content("~/lib/bootstrap/dist/css/bootstrap.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/lib/layui/css/layui.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/lib/jqGrid/css/ui.jqgrid.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/lib/font-awesome/css/font-awesome.css")" rel="stylesheet" />
+    @await RenderSectionAsync("styles", required: false)
 </head>
 <body style="background-color: #e6e6e6;">
 
@@ -28,7 +28,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; 2018 - SJNScaffolding.RazorPage</p>
+            <p>&copy; @DateTime.Now.Year - SJNScaffolding.RazorPage</p>
         </footer>
     </div>
 
@@ -52,11 +52,11 @@
         </script>
         <script src="~/js/site.min.js" asp-append-version="true"></script>
     </environment>
-    <script src="~/lib/layui/layui.all.js"></script>
-    <script src="~/lib/jqGrid/js/jquery.jqGrid.js"></script>
-    <script src="~/lib/jqGrid/js/jquery.jqGrid.extend.js"></script>
-    <script src="~/lib/jqGrid/plugins/jquery.tablednd.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="@Url.Content("~/lib/layui/layui.all.js")"></script>
+    <script src="@Url.Content("~/lib/jqGrid/js/jquery.jqGrid.js")"></script>
+    <script src="@Url.Content("~/lib/jqGrid/js/jquery.jqGrid.extend.js")"></script>
+    <script src="@Url.Content("~/lib/jqGrid/plugins/jquery.tablednd.js")"></script>
+    <script src="@Url.Content("~/lib/bootstrap/dist/js/bootstrap.js")"></script>
     <script>
         $('.layui-nav .layui-nav-item').each(function (i, v) {
             if ($(v).text() == '@Html.Raw(ViewData["Title"])') {
@@ -64,6 +64,6 @@
         }
     })
     </script>
-    @RenderSection("scripts", required: false)
+    @await RenderSectionAsync("scripts", required: false)
 </body>
 </html>
